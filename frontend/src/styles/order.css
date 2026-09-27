@@ -1,0 +1,152 @@
+/* ==========================================================================
+   订单状态相关样式（状态胶囊、进度条、流水线）
+   顾客端订单详情页和管理端订单卡片共用，避免两份实现走样。
+   ========================================================================== */
+
+/* ---- 状态胶囊 ---- */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.7;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--c-text-weak);
+}
+
+.status-pill--pending {
+  background: var(--s-pending);
+}
+
+.status-pill--accepted {
+  background: var(--s-accepted);
+}
+
+.status-pill--preparing {
+  background: var(--s-preparing);
+}
+
+.status-pill--cooking {
+  background: var(--s-cooking);
+  animation: status-pulse 1.6s var(--ease) infinite;
+}
+
+.status-pill--served {
+  background: var(--s-served);
+}
+
+.status-pill--cancelled {
+  background: var(--s-cancelled);
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 125, 107, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(239, 125, 107, 0);
+  }
+}
+
+/* ---- 五步进度条 ---- */
+.steps {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--sp-4) var(--sp-2);
+}
+
+.steps__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  min-width: 0;
+}
+
+/* 连接线 */
+.steps__item::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--c-border);
+  z-index: 0;
+}
+
+.steps__item:first-child::before {
+  display: none;
+}
+
+.steps__item.is-done::before,
+.steps__item.is-current::before {
+  background: var(--c-primary-300);
+}
+
+.steps__dot {
+  position: relative;
+  z-index: 1;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-bg-card);
+  border: 2px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: all var(--dur) var(--ease);
+}
+
+.steps__item.is-done .steps__dot {
+  background: var(--c-primary-300);
+  border-color: var(--c-primary-300);
+  color: #fff;
+}
+
+.steps__item.is-current .steps__dot {
+  background: linear-gradient(135deg, var(--c-primary-400), var(--c-primary-600));
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: var(--sh-primary);
+}
+
+.steps__label {
+  font-size: 10px;
+  color: var(--c-text-weak);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.steps__item.is-current .steps__label {
+  color: var(--c-primary-700);
+  font-weight: 600;
+}
+
+.steps__item.is-done .steps__label {
+  color: var(--c-text-sub);
+}
+
+/* ---- 取消态 ---- */
+.cancelled-box {
+  margin: 0 var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--c-bg-sunk);
+  border: 1px dashed var(--c-border-strong);
+  font-size: var(--fs-md);
+  color: var(--c-text-sub);
+}
+
+.cancelled-box strong {
+  color: var(--c-text);
+}

@@ -1,0 +1,148 @@
+/* ==========================================================================
+   爱心小食堂 · 主题变量
+   想换配色只改这个文件即可，所有页面都通过变量取色，不写死色值。
+   默认是「粉粉的可爱爱心风」。
+   ========================================================================== */
+
+:root {
+  /* ---- 主色阶（粉） ---- */
+  --c-primary-50: #fff5f8;
+  --c-primary-100: #ffe6ee;
+  --c-primary-200: #ffd0de;
+  --c-primary-300: #ffb3ca;
+  --c-primary-400: #ff8fab; /* 主色 */
+  --c-primary-500: #f76d92;
+  --c-primary-600: #e0527a;
+  --c-primary-700: #b93d60;
+
+  /* ---- 强调色（奶油黄 / 薄荷，用于标签点缀） ---- */
+  --c-accent-cream: #ffe9c7;
+  --c-accent-mint: #d7f5e9;
+  --c-accent-lilac: #ece4ff;
+
+  /* ---- 语义色 ---- */
+  --c-primary: var(--c-primary-400);
+  --c-primary-strong: var(--c-primary-600);
+  --c-primary-soft: var(--c-primary-100);
+  --c-bg: #fff7fa;
+  --c-bg-card: #ffffff;
+  --c-bg-sunk: #fff0f5;
+
+  --c-text: #43313a;
+  --c-text-sub: #8a7480;
+  --c-text-weak: #b6a3ad;
+  --c-text-on-primary: #ffffff;
+
+  --c-border: #ffe0e9;
+  --c-border-strong: #ffc9d9;
+
+  --c-success: #4bbf87;
+  --c-warning: #f0a13a;
+  --c-danger: #ef5f6b;
+  --c-info: #8f95d3;
+
+  /* ---- 订单状态色 ---- */
+  --s-pending: #f0a13a;
+  --s-accepted: #6fa8dc;
+  --s-preparing: #a78bda;
+  --s-cooking: #ef7d6b;
+  --s-served: #4bbf87;
+  --s-cancelled: #ae9ea6;
+
+  /* ---- 圆角 ---- */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 26px;
+  --r-pill: 999px;
+
+  /* ---- 阴影 ---- */
+  --sh-sm: 0 2px 8px rgba(233, 130, 160, 0.1);
+  --sh-md: 0 6px 18px rgba(233, 130, 160, 0.14);
+  --sh-lg: 0 12px 32px rgba(233, 130, 160, 0.18);
+  --sh-primary: 0 8px 20px rgba(247, 109, 146, 0.3);
+
+  /* ---- 间距 ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+
+  /* ---- 字号 ---- */
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-md: 14px;
+  --fs-lg: 16px;
+  --fs-xl: 19px;
+  --fs-2xl: 24px;
+  --fs-3xl: 30px;
+
+  /* ---- 布局 ---- */
+  --page-max: 480px;
+  /* 与 Vant 的 --van-tabbar-height 保持一致（默认 50px）。
+     Vant 给 .van-tabbar 设了 box-sizing: content-box 且没有 padding/border，
+     所以它的渲染高度就是精确的 50px（图标 22px + 文字 12px 放得下）。
+     操作条要叠在它上方，靠的就是这个值，改错了会出现缝隙或重叠。 */
+  --tabbar-h: 50px;
+  --actionbar-h: 72px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --header-h: 52px;
+
+  /* ---- 动效 ---- */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur: 220ms;
+
+  /* ==========================================================================
+     覆盖 Vant 组件变量（Vant 4 用 --van-* 前缀）
+     ========================================================================== */
+  --van-primary-color: var(--c-primary);
+  --van-danger-color: var(--c-danger);
+  --van-success-color: var(--c-success);
+  --van-warning-color: var(--c-warning);
+  --van-text-color: var(--c-text);
+  --van-text-color-2: var(--c-text-sub);
+  --van-text-color-3: var(--c-text-weak);
+  --van-background: var(--c-bg);
+  --van-background-2: var(--c-bg-card);
+  --van-border-color: var(--c-border);
+  --van-radius-md: var(--r-md);
+  --van-radius-lg: var(--r-lg);
+  --van-font-bold: 600;
+  --van-nav-bar-background: var(--c-bg-card);
+  --van-nav-bar-title-text-color: var(--c-text);
+  --van-nav-bar-icon-color: var(--c-primary-strong);
+  --van-button-primary-background: var(--c-primary);
+  --van-button-primary-border-color: var(--c-primary);
+  --van-button-round-radius: var(--r-pill);
+  --van-tabbar-item-active-color: var(--c-primary-strong);
+  --van-tabbar-item-text-color: var(--c-text-weak);
+  --van-cell-background: var(--c-bg-card);
+  --van-field-label-color: var(--c-text-sub);
+  --van-tag-primary-color: var(--c-primary);
+  --van-stepper-button-icon-color: var(--c-primary-strong);
+}
+
+/* 深夜模式：只做最基本的适配，两人用，够看就行 */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='auto'] {
+    --c-bg: #1e1619;
+    --c-bg-card: #2a1f24;
+    --c-bg-sunk: #241a1e;
+    --c-text: #f3e7ec;
+    --c-text-sub: #c3aab4;
+    --c-text-weak: #96808a;
+    --c-border: #3d2c33;
+    --c-border-strong: #4d3841;
+    --c-primary-50: #2a1f24;
+    --c-primary-100: #3a2429;
+    --c-primary-soft: #3a2429;
+    --van-background: var(--c-bg);
+    --van-background-2: var(--c-bg-card);
+    --van-border-color: var(--c-border);
+  }
+}

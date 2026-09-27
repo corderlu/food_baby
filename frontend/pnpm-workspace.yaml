@@ -1,0 +1,7 @@
+# pnpm 要求显式声明"允许执行构建脚本"的依赖（pnpm 会自己生成/补全这个文件）。
+# esbuild 需要可执行的二进制，vue-demi 需要跑一次 postinstall 生成转发文件。
+# 不设置的话 pnpm 会以 ERR_PNPM_IGNORED_BUILDS 结束，随后 vite build 会因为
+# 找不到 esbuild 二进制而失败。
+allowBuilds:
+  esbuild: true
+  vue-demi: true

@@ -1,0 +1,27 @@
+{
+  "name": "food-baby-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "爱心小食堂 · 情侣专属点餐系统前端（顾客端 + 管理端）",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5273",
+    "type-check": "vue-tsc -p tsconfig.json --noEmit && vue-tsc -p tsconfig.node.json --noEmit"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "pinia": "^2.3.0",
+    "vant": "^4.9.15",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vue-tsc": "^2.2.0"
+  }
+}
